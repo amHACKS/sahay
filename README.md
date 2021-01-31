@@ -46,11 +46,64 @@ Most Senior citizens and physically challenged people are stuck at home due to t
 - [Firebase](https://firebase.google.com/)
 
 
-<h3>Firebase by Google</h3>
-<ul>
-  <li>Firebase by Google is a very useful tool which helped us a lot to handle the backend part as it made things very easy</li>
-  <li>Using Firebase's ML-Kit we were able to make sure that a user is uploading a correct face using face-verification technique ensuring safety of the person being helped</li>
- </ul>
+### Firebase by Google ###
+- Using Firebase for saving details was very easy and it was awesome. Here's a snippet
+- We also used Firebase's ML-Kit to verify if the user is uploading a correct image as that ensures safety of the person being helped.
+
+ ```
+  private void verifyImage(){
+
+
+          FirebaseVisionFaceDetectorOptions highAccuracyOpts =
+                  new FirebaseVisionFaceDetectorOptions.Builder()
+                          .setPerformanceMode(FirebaseVisionFaceDetectorOptions.ACCURATE)
+                          .setLandmarkMode(FirebaseVisionFaceDetectorOptions.ALL_LANDMARKS)
+                          .setClassificationMode(FirebaseVisionFaceDetectorOptions.ALL_CLASSIFICATIONS)
+                          .build();
+          ProfileImageView.setDrawingCacheEnabled(true);
+          Bitmap bitmap = Bitmap.createBitmap(ProfileImageView.getDrawingCache());
+          FirebaseVisionImage image = FirebaseVisionImage.fromBitmap(bitmap);
+          ProfileImageView.setDrawingCacheEnabled(false);
+          FirebaseVisionFaceDetector detector = FirebaseVision.getInstance()
+                  .getVisionFaceDetector(highAccuracyOpts);
+          Task<List<FirebaseVisionFace>> result =
+                  detector.detectInImage(image)
+                          .addOnSuccessListener(
+                                  new OnSuccessListener<List<FirebaseVisionFace>>() {
+                                      @Override
+                                      public void onSuccess(List<FirebaseVisionFace> faces) {
+                                          // Task completed successfully
+                                          // ...
+                                          Log.d("MainActivity","Faces detected:"+ Integer.toString(faces.size()));
+                                          if(faces.size()==0){
+                                              //Toast.makeText(SetupActivity.this,"Please insert a proper image",Toast.LENGTH_SHORT).show();
+                                              new AlertDialog.Builder(SetupActivity.this)
+                                                      .setTitle("Face Recognition")
+                                                      .setMessage("Please insert a proper image")
+                                                      .setPositiveButton("OK", null)
+                                                      .show();
+                                          }
+                                          else if(faces.size()==1){
+
+                                              up_photo.setVisibility(View.INVISIBLE);
+                                              uploadImage();
+
+                                          }
+                                      }
+                                  })
+                          .addOnFailureListener(
+                                  new OnFailureListener() {
+                                      @Override
+                                      public void onFailure(@NonNull Exception e) {
+                                          // Task failed with an exception
+                                          // ...
+                                      }
+                                  });
+
+
+      }
+ ```
+
 
 
 <h3>Facebook API</h3>
