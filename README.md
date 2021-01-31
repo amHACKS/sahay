@@ -1,11 +1,14 @@
-# Sahay - सहाय 
-## A Way to Give Back
+# Sahay - सहाय - A Way to Give Back
+A platform for youngsters to voluntarily help disabled people and senior citizens during tough times.
+<img src="/images/sahay_all_compressed.gif" width="80%">
 
 ## Overview
 Most Senior citizens and physically challenged people are stuck at home due to the pandemic. A large fraction of them are stuck alone at home, making it difficult for them to get by. Our App aims to make their lives easier by providing a means for them to seek help from volunteers for tasks like 
 * Buying and delivering essentials and medicines
 * Domestic assistance
 * An accident or emergency at home, considering the fact that emergency services in our country are super slow to respond.
+
+<img src="images/gratitude_flowchart_2.png" width="80%">
 
 
 ### WorkFlow of our Application :
