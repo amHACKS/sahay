@@ -1,13 +1,14 @@
-# Gratitude
+# Sahay - सहाय 
+## A Way to Give Back
 
-
-<h3>What does this app do</h3>
-<p>Gratitude is an app that is for the old and the needy people. During the period of CoVID a lot of old people and handicapped ones suffered a lot and they couldn't buy the basic amenities required as well because of their health problems. Gratitude is an app that tries to solve this problem by making a system where volunteers could come and help these people in their day-to-day activities.</p>
+## Overview
+Most Senior citizens and physically challenged people are stuck at home due to the pandemic. A large fraction of them are stuck alone at home, making it difficult for them to get by. Our App aims to make their lives easier by providing a means for them to seek help from volunteers for tasks like 
+* Buying and delivering essentials and medicines
+* Domestic assistance
+* An accident or emergency at home, considering the fact that emergency services in our country are super slow to respond.
 
 
 ### WorkFlow of our Application :
-
-![Screenshot from 2021-01-17 17-07-37](https://user-images.githubusercontent.com/56226813/104839470-5fa0de80-58e7-11eb-9a19-2457422d54de.png)
 
 <h3> Steps for using this app </h3>
 <ul>
