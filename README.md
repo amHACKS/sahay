@@ -25,7 +25,7 @@ Most Senior citizens and physically challenged people are stuck at home due to t
 We’ve ensured ease of use by using
 descriptive icons and large color-coded buttons, which makes navigating through the app a whole lot easier for the target users. The gifs illustrate some of the functionalities of our application.
 
-<img src="images/sahay_upload_request.gif" width="25%"> <img src="images/sahay_volunteer.gif" width="25%">
+<img src="images/sahay_upload_request.gif" width="25%"> <img src="images/sahay_volunteer.gif" width="25%"> <img src="https://github.com/Mainakdeb/sahay/blob/main/images/sahay_login_2.gif" width="25%">
 
  
 ### Steps for Using
@@ -167,6 +167,7 @@ descriptive icons and large color-coded buttons, which makes navigating through 
  ```
 
 
-### Screen Shots of our Application :
-<img src = "images/sahay_welcome_page_screenshot.jpg" width = 50%><img src = "images/sahay_upload_request_screenshot.jpg" width = 50%>
+
+
+
 
