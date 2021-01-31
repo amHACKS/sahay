@@ -23,6 +23,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -472,15 +473,23 @@ public class Dashboard extends AppCompatActivity {
                 view.findViewById(R.id.requests_help_button).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if (latlon_target != null)
-                        {
-                            Uri mapUri = Uri.parse(latlon_target);
-                            Intent mapIntent = new Intent(Intent.ACTION_VIEW, mapUri);
-                            mapIntent.setPackage("com.google.android.apps.maps");
-                            if (mapIntent.resolveActivity(getPackageManager()) != null) {
-                                startActivity(mapIntent);
-                            }
-                        }
+
+
+                            Uri.Builder builder = new Uri.Builder();
+                            builder.scheme("https")
+                                    .authority("www.google.com")
+                                    .appendPath("maps")
+                                    .appendPath("dir")
+                                    .appendPath("")
+                                    .appendQueryParameter("api", "1")
+                                    .appendQueryParameter("destination", latlon_target);
+                            String url = builder.build().toString();
+                            Log.d("Directions", url);
+                            Intent i = new Intent(Intent.ACTION_VIEW);
+                            i.setData(Uri.parse(url));
+                            startActivity(i);
+
+                        
                     }
                 });
 

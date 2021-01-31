@@ -133,14 +133,14 @@
                     android:background="@drawable/edit_text_style"
                     />
 
-                <Button
+                <!--<Button
                     android:id="@+id/location_button"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:backgroundTint="@android:color/holo_blue_dark"
                     android:layout_marginTop="20dp"
                     android:text="Get Location"
-                    />
+                    />-->
 
                 <Button
                     android:id="@+id/setup_save_button"
