@@ -2,18 +2,19 @@ package amhacks.gratitude.Model;
 
 public class Requests {
 
-    String desc, poster, poster_location, type, status, time;
+    String desc, poster, poster_location, type, status, time, latlon;
 
     public Requests() {
     }
 
-    public Requests(String desc, String poster, String poster_location, String type, String status, String time) {
+    public Requests(String desc, String poster, String poster_location, String type, String status, String time, String latlon) {
         this.desc = desc;
         this.poster = poster;
         this.poster_location = poster_location;
         this.type = type;
         this.status = status;
         this.time = time;
+        this.latlon = latlon;
     }
 
     public String getDesc() {
@@ -62,5 +63,13 @@ public class Requests {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public String getLatlon() {
+        return latlon;
+    }
+
+    public void setLatlon(String latlon) {
+        this.latlon = latlon;
     }
 }

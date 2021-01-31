@@ -19,9 +19,11 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,7 +47,7 @@ public class Dashboard extends AppCompatActivity {
     private LinearLayout billsFormLayout, groceryFormLayout, emergencyFormLayout, orderFormLayout;
     private LinearLayout billsLayout, groceryLayout, emergencyLayout, orderLayout;
     private TextView helpSeekerTxt, helperTxt, usernameTxt, billsTimeTxt,emergencyTimeTxt, groceryTimeTxt,orderTimeTxt;
-    private String user_type, currentUserID, fullname, dest_time, address;
+    private String user_type, currentUserID, fullname, dest_time, address, latlon_target;
     private FirebaseAuth mAuth;
     private CircleImageView profileView;
     private FirebaseFirestore firestore;
@@ -123,26 +125,40 @@ public class Dashboard extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 billsTimePicker.setVisibility(View.VISIBLE);
+                groceryTimePicker.setVisibility(View.GONE);
+                emergencyTimePicker.setVisibility(View.GONE);
+                foodTimePicker.setVisibility(View.GONE);
+
             }
         });
         groceryTimeTxt.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View view) {
-                groceryTimePicker.setVisibility(View.VISIBLE);
+                billsTimePicker.setVisibility(View.VISIBLE);
+                groceryTimePicker.setVisibility(View.GONE);
+                emergencyTimePicker.setVisibility(View.GONE);
+                foodTimePicker.setVisibility(View.GONE);
+
             }
         });
         emergencyTimeTxt.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View view) {
+                billsTimePicker.setVisibility(View.GONE);
+                groceryTimePicker.setVisibility(View.GONE);
                 emergencyTimePicker.setVisibility(View.VISIBLE);
+                foodTimePicker.setVisibility(View.GONE);
             }
         });
         orderTimeTxt.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View view) {
+                billsTimePicker.setVisibility(View.GONE);
+                groceryTimePicker.setVisibility(View.GONE);
+                emergencyTimePicker.setVisibility(View.GONE);
                 foodTimePicker.setVisibility(View.VISIBLE);
             }
         });
@@ -454,6 +470,29 @@ public class Dashboard extends AppCompatActivity {
             public RequestsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                 View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.requests_layout, parent, false);
 
+                view.findViewById(R.id.requests_help_button).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+
+                            Uri.Builder builder = new Uri.Builder();
+                            builder.scheme("https")
+                                    .authority("www.google.com")
+                                    .appendPath("maps")
+                                    .appendPath("dir")
+                                    .appendPath("")
+                                    .appendQueryParameter("api", "1")
+                                    .appendQueryParameter("destination", latlon_target);
+                            String url = builder.build().toString();
+                            Log.d("Directions", url);
+                            Intent i = new Intent(Intent.ACTION_VIEW);
+                            i.setData(Uri.parse(url));
+                            startActivity(i);
+
+                        
+                    }
+                });
+
                 return new RequestsViewHolder(view);
             }
 
@@ -464,6 +503,7 @@ public class Dashboard extends AppCompatActivity {
                 holder.setTime(model.getTime());
                 holder.setPoster_location(model.getPoster_location());
                 holder.setType(model.getType());
+                latlon_target = model.getLatlon();
 
                 String poster_id = model.getPoster();
 

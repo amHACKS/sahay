@@ -64,8 +64,10 @@
             android:text="Karma points - 1200"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="@color/orange"
-            android:padding="5dp"
+            android:background="@drawable/button_style1"
+            android:backgroundTint="@color/orange"
+            android:textColor="@color/white"
+            android:padding="10dp"
             android:layout_marginTop="10dp"
             />
         <LinearLayout
@@ -119,6 +121,21 @@
                 />
 
         </LinearLayout>
+
+        <Button
+            android:drawableLeft="@drawable/logout_icon"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/white"
+            android:id="@+id/logout_button"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Logout"
+            android:textSize="18sp"
+            android:background="@drawable/button_style1"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="20dp"
+            />
 
     </LinearLayout>
 

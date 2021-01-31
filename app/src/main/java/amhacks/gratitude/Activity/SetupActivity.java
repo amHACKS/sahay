@@ -8,6 +8,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -48,6 +49,8 @@ import com.google.firebase.storage.UploadTask;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
+
 import amhacks.gratitude.R;
 
 public class SetupActivity extends AppCompatActivity implements LocationListener {
@@ -60,11 +63,17 @@ public class SetupActivity extends AppCompatActivity implements LocationListener
     private Button SaveButton, button_location;
     private FirebaseAuth mAuth;
     private FirebaseFirestore firestore;
-    private String currentUserID, profileURL, address;
+    private String currentUserID, profileURL, address, latlon;
     private Uri imageUri;
     private StorageReference profileStoreRef;
 
     LocationManager locationManager;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        getlocation();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,14 +82,15 @@ public class SetupActivity extends AppCompatActivity implements LocationListener
 
         setContentView(R.layout.activity_setup);
 
-        button_location = findViewById(R.id.location_button);
+        //button_location = findViewById(R.id.location_button);
         
-        button_location.setOnClickListener(new View.OnClickListener() {
+      /*  button_location.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getlocation();
             }
         });
+       */
 
         mAuth = FirebaseAuth.getInstance();
         currentUserID = mAuth.getCurrentUser().getUid().toString();
@@ -222,7 +232,7 @@ public class SetupActivity extends AppCompatActivity implements LocationListener
         gender = GenderSpinner.getSelectedItem().toString();
         phone = PhoneET.getText().toString();
 
-        if (TextUtils.isEmpty(fullname) || TextUtils.isEmpty(gender) || TextUtils.isEmpty(phone) || TextUtils.isEmpty(address) || imageUri==null)
+        if (TextUtils.isEmpty(fullname) || TextUtils.isEmpty(gender) || TextUtils.isEmpty(phone) || TextUtils.isEmpty(address) || imageUri==null || latlon == null)
         {
             Toast.makeText(this, "All fields are mandatory.", Toast.LENGTH_SHORT).show();
         }
@@ -238,6 +248,7 @@ public class SetupActivity extends AppCompatActivity implements LocationListener
             hashMap.put("address", address);
             hashMap.put("email",email);
             hashMap.put("profile_picture", profileURL);
+            hashMap.put("latlon",latlon);
 
             firestore.collection("Users").document(currentUserID).set(hashMap)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -267,12 +278,12 @@ public class SetupActivity extends AppCompatActivity implements LocationListener
     @Override
     public void onLocationChanged(Location location) {
 
-        Toast.makeText(this,""+location.getLatitude()+","+location.getLongitude(),Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this,""+location.getLatitude()+","+location.getLongitude(),Toast.LENGTH_SHORT).show();
 
         try {
             Geocoder gecoder = new Geocoder(SetupActivity.this, Locale.getDefault());
             List<Address> addresses = gecoder.getFromLocation(location.getLatitude(),location.getLongitude(),1);
-
+            latlon = String.valueOf(location.getLatitude()) + "," + String.valueOf(location.getLongitude());
             address = addresses.get(0).getAddressLine(0);
 
 
@@ -323,8 +334,12 @@ public class SetupActivity extends AppCompatActivity implements LocationListener
                                         // ...
                                         Log.d("MainActivity","Faces detected:"+ Integer.toString(faces.size()));
                                         if(faces.size()==0){
-                                            Toast.makeText(SetupActivity.this,"Please insert a proper image",Toast.LENGTH_SHORT).show();
-
+                                            //Toast.makeText(SetupActivity.this,"Please insert a proper image",Toast.LENGTH_SHORT).show();
+                                            new AlertDialog.Builder(SetupActivity.this)
+                                                    .setTitle("Face Recognition")
+                                                    .setMessage("Please insert a proper image")
+                                                    .setPositiveButton("OK", null)
+                                                    .show();
                                         }
                                         else if(faces.size()==1){
 
@@ -345,4 +360,5 @@ public class SetupActivity extends AppCompatActivity implements LocationListener
 
 
     }
+
 }
