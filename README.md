@@ -48,6 +48,30 @@ Most Senior citizens and physically challenged people are stuck at home due to t
 
 ### Firebase by Google ###
 - Using Firebase for saving details was very easy and it was awesome. Here's a snippet
+ ```
+  HashMap<String, Object> hashMap = new HashMap<>();
+                                hashMap.put("email",email);
+
+                                firestore.collection("Users").document(currentUserID).set(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful())
+                                        {
+                                            progressDialog.dismiss();
+                                            Intent setupIntent = new Intent(LoginActivity.this, SetupActivity.class);
+                                            setupIntent.putExtra("email",email);
+                                            setupIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                            startActivity(setupIntent);
+                                        }
+                                        else
+                                        {
+                                            progressDialog.dismiss();
+                                            String err = task.getException().getMessage();
+                                            Toast.makeText(LoginActivity.this, err, Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+ ```
 - We also used Firebase's ML-Kit to verify if the user is uploading a correct image as that ensures safety of the person being helped.
 
  ```
@@ -106,10 +130,30 @@ Most Senior citizens and physically challenged people are stuck at home due to t
 
 
 
-<h3>Facebook API</h3>
-<ul>
-  <li>Facebook API was mainly used for the register part and we saved users into firebase</li>
-  <li>In future we plan to give option to share to facebook as that would be very helpful</li>
-</ul>
+### Facebook API ###
+
+  Facebook API was mainly used for the register part and we saved users into firebase
+  ```
+  private void handleFacebookAccessToken(AccessToken token) {
+
+        AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            FirebaseUser user = mAuth.getCurrentUser();
+                        } else {
+                            // If sign in fails, display a message to the user.
+
+                        }
+
+                        // ...
+                    }
+                });
+    }
+ ```
+
 
 ### Screen Shots of our Application :
