@@ -20,7 +20,16 @@ Most Senior citizens and physically challenged people are stuck at home due to t
   ```
   https://developer.android.com/studio
   ```
-  Once all dependencies are installed then click on run and that's it
+  Firebase usage(Make sure these lines are there in app module of build.gradle file)
+  ```
+  implementation 'com.google.firebase:firebase-ml-vision:24.0.3'
+  implementation 'com.google.firebase:firebase-ml-vision-face-model:20.0.1'
+  ```
+  Facebook SDK(Make sure these lines are there in app module of build.gradle file)
+  ```
+  implementation 'com.facebook.android:facebook-android-sdk:[5,6)'
+  implementation 'com.facebook.android:facebook-share:[5,6)'
+  ```
 ### WorkFlow of our Application :
 - A user logs in or registers through the app using email or Facebook
 - Next user uploads personal details.
@@ -30,12 +39,12 @@ Most Senior citizens and physically challenged people are stuck at home due to t
 - A helper has the option to help someone based on the location provided by the help-seeker
 - Google Maps was used for this purpose
 
-<h3>Resources</h3>
-<ul>
-  <li>Java For Android</li>
-  <li>Facebook API for Login</li>
-  <li>Firebase</li>
-</ul>
+### Resources ###
+
+- [Java For Android](https://developer.android.com/studio/write/java8-support?gclid=Cj0KCQiAx9mABhD0ARIsAEfpavRC2vOE87xYbFaVWQK0B1cUjnWUG5vh8G-YvZm-i3dQjVucjUW5_UUaAhiZEALw_wcB&gclsrc=aw.ds)
+- [Facebook API for Login](https://developers.facebook.com/docs/facebook-login/)
+- [Firebase](https://firebase.google.com/)
+
 
 <h3>Firebase by Google</h3>
 <ul>
