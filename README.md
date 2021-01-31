@@ -1,32 +1,33 @@
 # Sahay - सहाय - A Way to Give Back
+A platform for youngsters to voluntarily help disabled people and senior citizens during tough times.
 <img src="/images/sahay_all_compressed.gif" width="80%">
 
-A platform for youngsters to voluntarily help disabled people and senior citizens during tough times.
 
 ## Overview
-<img src="images/sahay_flowchart_2.png" width="80%">
-
 Most Senior citizens and physically challenged people are stuck at home due to the pandemic. A large fraction of them are stuck alone at home, making it difficult for them to get by. Our App aims to make their lives easier by providing a means for them to seek help from volunteers for tasks like 
 * Buying and delivering essentials and medicines
 * Domestic assistance
 * An accident or emergency at home, considering the fact that emergency services in our country are super slow to respond.
 
+<img src="images/sahay_flowchart_2.png" width="80%">
+
+
  
-### Steps for Using ###
-  Clone the repo
+### Steps for Using
+1. Clone the repo
   ```
   git clone 'https://github.com/Mainakdeb/sahay.git'
   ```
-  Open Android Studio or download it
+2. Open Android Studio or download it
   ```
   https://developer.android.com/studio
   ```
-  Firebase usage(Make sure these lines are there in app module of build.gradle file)
+3. Firebase usage(Make sure these lines are there in app module of build.gradle file)
   ```
   implementation 'com.google.firebase:firebase-ml-vision:24.0.3'
   implementation 'com.google.firebase:firebase-ml-vision-face-model:20.0.1'
   ```
-  Facebook SDK(Make sure these lines are there in app module of build.gradle file)
+4. Facebook SDK(Make sure these lines are there in app module of build.gradle file)
   ```
   implementation 'com.facebook.android:facebook-android-sdk:[5,6)'
   implementation 'com.facebook.android:facebook-share:[5,6)'
