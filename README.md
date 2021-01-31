@@ -1,6 +1,7 @@
 # Sahay - सहाय - A Way to Give Back
-A platform for youngsters to voluntarily help disabled people and senior citizens during tough times.
 <img src="/images/sahay_all_compressed.gif" width="80%">
+
+A platform for youngsters to voluntarily help disabled people and senior citizens during tough times.
 
 ## Overview
 <img src="images/sahay_flowchart_2.png" width="80%">
