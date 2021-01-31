@@ -157,5 +157,5 @@ Most Senior citizens and physically challenged people are stuck at home due to t
 
 
 ### Screen Shots of our Application :
-<img src = "images/sahay_welcome_page_screenshot.jpg" width = 50%>
-<img src = "images/sahay_upload_request_screenshot.jpg" width = 50%>
+<img src = "images/sahay_welcome_page_screenshot.jpg" width = 50%><img src = "images/sahay_upload_request_screenshot.jpg" width = 50%>
+
