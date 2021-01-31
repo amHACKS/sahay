@@ -11,6 +11,12 @@ Most Senior citizens and physically challenged people are stuck at home due to t
 
 <img src="images/sahay_flowchart_2.png" width="70%">
 
+### WorkFlow of our Application :
+- A user logs in or registers through the app using email or Facebook
+- When the user chooses to request help, he'll have to specify the kind of help he wants to avail, with some essential details. 
+- After posting the request, the app automatically uploads the location of the user, which the volunteers will have access to. 
+- We are using Google's firebase service for storing user data, and we have integrated google maps for easy navigation.
+
 ### Tech Stack
 
 - Java For Android
@@ -47,15 +53,6 @@ descriptive icons and large color-coded buttons, which makes navigating through 
   implementation 'com.facebook.android:facebook-android-sdk:[5,6)'
   implementation 'com.facebook.android:facebook-share:[5,6)'
   ```
-### WorkFlow of our Application :
-- A user logs in or registers through the app using email or Facebook
-- Next user uploads personal details.
-- Here we ensure a proper photo is uploaded using Firebase's ML-Kit
-- Next they go to dashboard where they can help someone or seek help
-- A help seeker has the option to give details about what he wants
-- A helper has the option to help someone based on the location provided by the help-seeker
-- Google Maps was used for this purpose
-
 
 ### Firebase by Google ###
 - Using Firebase for saving details was very easy and it was awesome. Here's a snippet
