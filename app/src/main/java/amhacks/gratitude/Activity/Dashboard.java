@@ -4,8 +4,11 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -13,25 +16,25 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
 
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
-
-import java.sql.Time;
 import java.util.HashMap;
 
+import amhacks.gratitude.Model.Requests;
+import amhacks.gratitude.ViewHolder.RequestsViewHolder;
 import amhacks.gratitude.R;
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -45,10 +48,17 @@ public class Dashboard extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private CircleImageView profileView;
     private FirebaseFirestore firestore;
-    private TimePicker billsTimePicker,groceryTimePicker, foodTimePicker, emergencyTimePicker;
-    private Button postBills,postGrocery, postEmergency, postOrder;
+    private TimePicker billsTimePicker;
+    private Button postBills;
+    private RecyclerView requestsView;
+    private EditText DescET;
+    private FirestoreRecyclerAdapter adapter;
 
-    private EditText DescET, groceryET, emergencyET, orderET;
+    private TimePicker groceryTimePicker, foodTimePicker, emergencyTimePicker;
+    private Button postGrocery, postEmergency, postOrder;
+
+    private EditText groceryET, emergencyET, orderET;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +106,7 @@ public class Dashboard extends AppCompatActivity {
         postOrder = (Button) findViewById(R.id.post_request_order);
 
         DescET = (EditText) findViewById(R.id.desc_bills);
+        requestsView = (RecyclerView)  findViewById(R.id.requests_recycler_view);
         groceryET = (EditText) findViewById(R.id.desc_grocery);
         orderET = (EditText) findViewById(R.id.desc_order);
         emergencyET = (EditText) findViewById(R.id.desc_emergency);
@@ -122,24 +133,36 @@ public class Dashboard extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 billsFormLayout.setVisibility(View.VISIBLE);
+                groceryFormLayout.setVisibility(View.GONE);
+                emergencyFormLayout.setVisibility(View.GONE);
+                orderFormLayout.setVisibility(View.GONE);
             }
         });
         orderFormLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                billsFormLayout.setVisibility(View.GONE);
+                groceryFormLayout.setVisibility(View.GONE);
+                emergencyFormLayout.setVisibility(View.GONE);
                 orderFormLayout.setVisibility(View.VISIBLE);
             }
         });
         groceryFormLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                billsFormLayout.setVisibility(View.GONE);
                 groceryFormLayout.setVisibility(View.VISIBLE);
+                emergencyFormLayout.setVisibility(View.GONE);
+                orderFormLayout.setVisibility(View.GONE);
             }
         });
         emergencyFormLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                billsFormLayout.setVisibility(View.GONE);
+                groceryFormLayout.setVisibility(View.GONE);
                 emergencyFormLayout.setVisibility(View.VISIBLE);
+                orderFormLayout.setVisibility(View.GONE);
             }
         });
 
@@ -382,7 +405,71 @@ public class Dashboard extends AppCompatActivity {
         });
 
 
+        Query query = firestore.collection("Posts");
 
+        FirestoreRecyclerOptions<Requests> firestoreRecyclerOptions
+                = new FirestoreRecyclerOptions.Builder<Requests>()
+                .setQuery(query, Requests.class)
+                .build();
+
+        adapter = new FirestoreRecyclerAdapter<Requests, RequestsViewHolder>(firestoreRecyclerOptions)
+        {
+
+            @NonNull
+            @Override
+            public RequestsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.requests_layout, parent, false);
+
+                return new RequestsViewHolder(view);
+            }
+
+            @Override
+            protected void onBindViewHolder(@NonNull RequestsViewHolder holder, int position, @NonNull Requests model) {
+
+                holder.setDesc(model.getDesc());
+                holder.setTime(model.getTime());
+                holder.setPoster_location(model.getPoster_location());
+                holder.setType(model.getType());
+
+                String poster_id = model.getPoster();
+
+                firestore.collection("Users").document(poster_id)
+                        .addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                            @Override
+                            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+
+                                if (value!=null)
+                                {
+                                    String name = value.get("fullname").toString();
+                                    String imageURL = value.get("profile_picture").toString();
+                                    holder.setImage(imageURL);
+                                    holder.setName(name);
+
+                                }
+                            }
+                        });
+
+            }
+        };
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setReverseLayout(true);
+        requestsView.setLayoutManager(linearLayoutManager);
+
+        requestsView.setAdapter(adapter);
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        adapter.stopListening();
     }
 }
 
