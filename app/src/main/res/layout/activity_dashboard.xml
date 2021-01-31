@@ -12,7 +12,7 @@
         android:layout_height="120dp"
         android:id="@+id/header_llt"
         android:background="@color/orange"
-       >
+        >
 
         <TextView
             android:id="@+id/dashboard_title"
@@ -37,14 +37,14 @@
             android:gravity="center"
             >
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_image_dashboard"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/profile_picture"
-            />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image_dashboard"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/profile_picture"
+                />
             <TextView
-            	android:id="@+id/username_txt"
+                android:id="@+id/username_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Username"
@@ -105,243 +105,243 @@
         android:layout_below="@id/switch_llt"
         >
 
-    <LinearLayout
-        android:id="@+id/help_seeker_body"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
-        <Button
-            android:id="@+id/view_helpers_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="View helpers"
-            android:background="@drawable/edit_text_style"
-            android:textColor="@color/darker_gray"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="10dp"
-            android:textStyle="bold"
-            android:padding="10dp"
-            />
-
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fadeScrollbars="true"
-            >
-
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="15dp"
-            android:padding="5dp"
-            >
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="10dp"
-                android:layout_marginLeft="10dp"
-                >
-                <LinearLayout
-                    android:id="@+id/bills_llt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:background="@drawable/edit_text_style"
-                    android:padding="5dp"
-                    android:backgroundTint="@color/orange"
-                    >
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="80dp"
-                        android:src="@drawable/bills"
-                        android:padding="10dp"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Bills"
-                        android:textSize="18sp"
-                        android:padding="5dp"
-                        />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="10dp"
-                android:layout_marginLeft="10dp"
-                >
-                <LinearLayout
-                    android:id="@+id/grocery_llt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:background="@drawable/edit_text_style"
-                    android:backgroundTint="@color/orange"
-                    >
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="80dp"
-                        android:src="@drawable/grocery"
-                        android:padding="10dp"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Grocery"
-                        android:textSize="18sp"
-                        android:padding="5dp"
-                        />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="10dp"
-                android:layout_marginLeft="10dp"
-                >
-                <LinearLayout
-                    android:id="@+id/emergency_llt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:background="@drawable/edit_text_style"
-                    android:backgroundTint="@color/orange"
-                    >
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="80dp"
-                        android:src="@drawable/emergency"
-                        android:padding="10dp"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Emergency"
-                        android:textSize="17sp"
-                        android:padding="5dp"
-                        />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="10dp"
-                android:layout_marginLeft="10dp"
-                >
-                <LinearLayout
-                    android:id="@+id/food_llt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:background="@drawable/edit_text_style"
-                    android:backgroundTint="@color/orange"
-                    >
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="80dp"
-                        android:src="@drawable/order"
-                        android:padding="10dp"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Food"
-                        android:textSize="17sp"
-                        android:padding="5dp"
-                        />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-        </LinearLayout>
-        </HorizontalScrollView>
-
-        <LinearLayout
+            android:id="@+id/help_seeker_body"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="20dp"
-            android:id="@+id/display_body"
             >
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/bills_form_llt"
-            android:orientation="vertical"
-            android:padding="15dp"
-            android:backgroundTint="@color/orange"
-            android:background="@drawable/edit_text_style"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:visibility="gone"
-            >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Bill Payment"
-                android:textSize="20sp"
-                android:textAllCaps="true"
-                android:textStyle="bold"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/darker_gray"
-                />
-            <TextView
-                android:id="@+id/time_txt_bills"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/edit_text_style"
-                android:text="Select Time"
-                android:textSize="18sp"
-                android:drawableLeft="@drawable/time_icon"
-                android:drawablePadding="10dp"
-                android:padding="12dp"
-                android:layout_marginTop="20dp"
-                />
-            <TimePicker
-                android:id="@+id/time_picker_bills"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:headerBackground="@color/orange"
-                android:numbersSelectorColor="@color/orange"
-                android:layout_marginTop="10dp"
-                android:visibility="gone"
-                />
-
-            <EditText
-                android:id="@+id/desc_bills"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:background="@drawable/edit_text_style"
-                android:hint="Description"
-                android:padding="15dp"
-                android:layout_marginTop="20dp"
-                />
-
             <Button
-                android:id="@+id/post_request_bills"
-                android:layout_marginTop="20dp"
+                android:id="@+id/view_helpers_button"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="Post request"
-                android:background="@drawable/button_style1"
+                android:layout_height="wrap_content"
+                android:text="View helpers"
+                android:background="@drawable/edit_text_style"
+                android:textColor="@color/darker_gray"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:padding="10dp"
                 />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fadeScrollbars="true"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="15dp"
+                    android:padding="5dp"
+                    >
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginLeft="10dp"
+                        >
+                        <LinearLayout
+                            android:id="@+id/bills_llt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:background="@drawable/edit_text_style"
+                            android:padding="5dp"
+                            android:backgroundTint="@color/orange"
+                            >
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="80dp"
+                                android:src="@drawable/bills"
+                                android:padding="10dp"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Bills"
+                                android:textSize="18sp"
+                                android:padding="5dp"
+                                />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginLeft="10dp"
+                        >
+                        <LinearLayout
+                            android:id="@+id/grocery_llt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:background="@drawable/edit_text_style"
+                            android:backgroundTint="@color/orange"
+                            >
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="80dp"
+                                android:src="@drawable/grocery"
+                                android:padding="10dp"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Grocery"
+                                android:textSize="18sp"
+                                android:padding="5dp"
+                                />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginLeft="10dp"
+                        >
+                        <LinearLayout
+                            android:id="@+id/emergency_llt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:background="@drawable/edit_text_style"
+                            android:backgroundTint="@color/orange"
+                            >
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="80dp"
+                                android:src="@drawable/emergency"
+                                android:padding="10dp"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Emergency"
+                                android:textSize="17sp"
+                                android:padding="5dp"
+                                />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginLeft="10dp"
+                        >
+                        <LinearLayout
+                            android:id="@+id/food_llt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:background="@drawable/edit_text_style"
+                            android:backgroundTint="@color/orange"
+                            >
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="80dp"
+                                android:src="@drawable/order"
+                                android:padding="10dp"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Food"
+                                android:textSize="17sp"
+                                android:padding="5dp"
+                                />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                android:id="@+id/display_body"
+                >
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bills_form_llt"
+                android:orientation="vertical"
+                android:padding="15dp"
+                android:backgroundTint="@color/orange"
+                android:background="@drawable/edit_text_style"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:visibility="gone"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bill Payment"
+                    android:textSize="20sp"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/darker_gray"
+                    />
+                <TextView
+                    android:id="@+id/time_txt_bills"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/edit_text_style"
+                    android:text="Select Time"
+                    android:textSize="18sp"
+                    android:drawableLeft="@drawable/time_icon"
+                    android:drawablePadding="10dp"
+                    android:padding="12dp"
+                    android:layout_marginTop="20dp"
+                    />
+                <TimePicker
+                    android:id="@+id/time_picker_bills"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:headerBackground="@color/orange"
+                    android:numbersSelectorColor="@color/orange"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone"
+                    />
+
+                <EditText
+                    android:id="@+id/desc_bills"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@drawable/edit_text_style"
+                    android:hint="Description"
+                    android:padding="15dp"
+                    android:layout_marginTop="20dp"
+                    />
+
+                <Button
+                    android:id="@+id/post_request_bills"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Post request"
+                    android:background="@drawable/button_style1"
+                    />
 
 
             </LinearLayout>
@@ -412,134 +412,134 @@
 
             </LinearLayout>
 
-        <LinearLayout
+            <LinearLayout
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/emergency_form_llt"
-            android:orientation="vertical"
-            android:padding="15dp"
-            android:backgroundTint="@color/orange"
-            android:background="@drawable/edit_text_style"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:visibility="gone"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Emergencies"
-                android:textSize="20sp"
-                android:textAllCaps="true"
-                android:textStyle="bold"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/darker_gray"
-                />
-            <TextView
-                android:id="@+id/time_txt_emergency"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/edit_text_style"
-                android:text="Select Time"
-                android:textSize="18sp"
-                android:drawableLeft="@drawable/time_icon"
-                android:drawablePadding="10dp"
-                android:padding="12dp"
-                android:layout_marginTop="20dp"
-                />
-            <TimePicker
-                android:id="@+id/time_picker_emergency"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:headerBackground="@color/orange"
-                android:numbersSelectorColor="@color/orange"
-                android:layout_marginTop="10dp"
-                android:visibility="gone"
-                />
-
-            <EditText
-                android:id="@+id/desc_emergency"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:background="@drawable/edit_text_style"
-                android:hint="Enter in short any problems that have ocurred"
+                android:id="@+id/emergency_form_llt"
+                android:orientation="vertical"
                 android:padding="15dp"
-                android:layout_marginTop="20dp"
-                />
-
-            <Button
-                android:id="@+id/post_request_emergency"
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="Post request"
-                android:background="@drawable/button_style1"
-                />
-        </LinearLayout>
-
-        <LinearLayout
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/order_form_llt"
-            android:orientation="vertical"
-            android:padding="15dp"
-            android:backgroundTint="@color/orange"
-            android:background="@drawable/edit_text_style"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:visibility="gone"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="FOOD ORDERING"
-                android:textSize="20sp"
-                android:textAllCaps="true"
-                android:textStyle="bold"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/darker_gray"
-                />
-            <TextView
-                android:id="@+id/time_txt_order"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:backgroundTint="@color/orange"
                 android:background="@drawable/edit_text_style"
-                android:text="Select Time"
-                android:textSize="18sp"
-                android:drawableLeft="@drawable/time_icon"
-                android:drawablePadding="10dp"
-                android:padding="12dp"
-                android:layout_marginTop="20dp"
-                />
-            <TimePicker
-                android:id="@+id/time_picker_order"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:headerBackground="@color/orange"
-                android:numbersSelectorColor="@color/orange"
-                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:visibility="gone"
-                />
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Emergencies"
+                    android:textSize="20sp"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/darker_gray"
+                    />
+                <TextView
+                    android:id="@+id/time_txt_emergency"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/edit_text_style"
+                    android:text="Select Time"
+                    android:textSize="18sp"
+                    android:drawableLeft="@drawable/time_icon"
+                    android:drawablePadding="10dp"
+                    android:padding="12dp"
+                    android:layout_marginTop="20dp"
+                    />
+                <TimePicker
+                    android:id="@+id/time_picker_emergency"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:headerBackground="@color/orange"
+                    android:numbersSelectorColor="@color/orange"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone"
+                    />
 
-            <EditText
-                android:id="@+id/desc_order"
+                <EditText
+                    android:id="@+id/desc_emergency"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@drawable/edit_text_style"
+                    android:hint="Enter in short any problems that have ocurred"
+                    android:padding="15dp"
+                    android:layout_marginTop="20dp"
+                    />
+
+                <Button
+                    android:id="@+id/post_request_emergency"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Post request"
+                    android:background="@drawable/button_style1"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:background="@drawable/edit_text_style"
-                android:hint="Enter food quantity and restaurants preferred"
+                android:layout_height="wrap_content"
+                android:id="@+id/order_form_llt"
+                android:orientation="vertical"
                 android:padding="15dp"
-                android:layout_marginTop="20dp"
-                />
-            <Button
-                android:id="@+id/post_request_order"
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="Post request"
-                android:background="@drawable/button_style1"
-                />
-        </LinearLayout>
+                android:backgroundTint="@color/orange"
+                android:background="@drawable/edit_text_style"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:visibility="gone"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FOOD ORDERING"
+                    android:textSize="20sp"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/darker_gray"
+                    />
+                <TextView
+                    android:id="@+id/time_txt_order"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/edit_text_style"
+                    android:text="Select Time"
+                    android:textSize="18sp"
+                    android:drawableLeft="@drawable/time_icon"
+                    android:drawablePadding="10dp"
+                    android:padding="12dp"
+                    android:layout_marginTop="20dp"
+                    />
+                <TimePicker
+                    android:id="@+id/time_picker_order"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:headerBackground="@color/orange"
+                    android:numbersSelectorColor="@color/orange"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone"
+                    />
+
+                <EditText
+                    android:id="@+id/desc_order"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@drawable/edit_text_style"
+                    android:hint="Enter food quantity and restaurants preferred"
+                    android:padding="15dp"
+                    android:layout_marginTop="20dp"
+                    />
+                <Button
+                    android:id="@+id/post_request_order"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Post request"
+                    android:background="@drawable/button_style1"
+                    />
+            </LinearLayout>
 
 
 
