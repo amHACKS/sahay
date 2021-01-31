@@ -8,7 +8,6 @@ Most Senior citizens and physically challenged people are stuck at home due to t
 * Domestic assistance
 * An accident or emergency at home, considering the fact that emergency services in our country are super slow to respond.
 
-<img src="images/sahay_flowchart_2.png" width="80%">
  
 ### Steps for Using ###
   Clone the repo
@@ -21,13 +20,7 @@ Most Senior citizens and physically challenged people are stuck at home due to t
   ```
   Once all dependencies are installed then click on run and that's it
 ### WorkFlow of our Application :
-
-<h3> Steps for using this app </h3>
-<ul>
-  <li>Clone this repo using 'git clone'</li>
-  <li>Make sure usb debugging and installing is turned on</li>
-  <li>Once all dependencies are installed then click on run and that's it</li>
-</ul>
+<img src="images/sahay_flowchart_2.png" width="80%">
 
 <h3>Resources</h3>
 <ul>
