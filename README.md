@@ -1,6 +1,6 @@
 # Sahay - सहाय - A Way to Give Back
 A platform for youngsters to voluntarily help disabled people and senior citizens during tough times.
-<img src="/images/sahay_all_compressed.gif" width="80%">
+<img src="/images/sahay_all.gif" width="70%">
 
 
 ## Overview
@@ -9,8 +9,23 @@ Most Senior citizens and physically challenged people are stuck at home due to t
 * Domestic assistance
 * An accident or emergency at home, considering the fact that emergency services in our country are super slow to respond.
 
-<img src="images/sahay_flowchart_2.png" width="80%">
+<img src="images/sahay_flowchart_2.png" width="70%">
 
+### Tech Stack
+
+- Java For Android
+- Google Maps API
+- Facebook API for User Authentication
+- Cloud Firestore
+- Directions API
+- Google ML-Kit
+
+## Simple and Intuitive UI
+
+We’ve ensured ease of use by using
+descriptive icons and large color-coded buttons, which makes navigating through the app a whole lot easier for the target users. The gifs illustrate some of the functionalities of our application.
+
+<img src="images/sahay_upload_request.gif" width="25%"> <img src="images/sahay_volunteer.gif" width="25%">
 
  
 ### Steps for Using
@@ -40,12 +55,6 @@ Most Senior citizens and physically challenged people are stuck at home due to t
 - A help seeker has the option to give details about what he wants
 - A helper has the option to help someone based on the location provided by the help-seeker
 - Google Maps was used for this purpose
-
-### Resources ###
-
-- [Java For Android](https://developer.android.com/studio/write/java8-support?gclid=Cj0KCQiAx9mABhD0ARIsAEfpavRC2vOE87xYbFaVWQK0B1cUjnWUG5vh8G-YvZm-i3dQjVucjUW5_UUaAhiZEALw_wcB&gclsrc=aw.ds)
-- [Facebook API for Login](https://developers.facebook.com/docs/facebook-login/)
-- [Firebase](https://firebase.google.com/)
 
 
 ### Firebase by Google ###
