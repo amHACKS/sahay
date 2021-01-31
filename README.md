@@ -11,15 +11,15 @@ Most Senior citizens and physically challenged people are stuck at home due to t
 <img src="images/sahay_flowchart_2.png" width="80%">
  
 ### Steps for Using ###
-- Clone the repo
+  Clone the repo
   ```
   git clone 'https://github.com/Mainakdeb/sahay.git'
   ```
-- Open Android Studio
+  Open Android Studio or download it
   ```
   https://developer.android.com/studio
   ```
-- Click on Android Studio
+  Once all dependencies are installed then click on run and that's it
 ### WorkFlow of our Application :
 
 <h3> Steps for using this app </h3>
