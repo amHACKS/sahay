@@ -8,9 +8,18 @@ Most Senior citizens and physically challenged people are stuck at home due to t
 * Domestic assistance
 * An accident or emergency at home, considering the fact that emergency services in our country are super slow to respond.
 
-<img src="images/gratitude_flowchart_2.png" width="80%">
-
-
+<img src="images/sahay_flowchart_2.png" width="80%">
+ 
+### Steps for Using ###
+- Clone the repo
+  ```
+  git clone 'https://github.com/Mainakdeb/sahay.git'
+  ```
+- Open Android Studio
+  ```
+  https://developer.android.com/studio
+  ```
+- Click on Android Studio
 ### WorkFlow of our Application :
 
 <h3> Steps for using this app </h3>
